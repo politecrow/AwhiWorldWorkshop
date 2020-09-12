@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AwhiWorld p5 demo project</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+  <!--<div class="colourPicker">
+    <div class="colour red"></div>
+    <div class="colour orange"></div>
+    <div class="colour yellow"></div>
+    <div class="colour red"></div>
+    <div class="colour red"></div>
+  </div>-->
+  
+  <div class="sliderContainer">
+    <span style="padding-left: 10px;">Rotation Speed:</span>
+    <input type="range" min="0" max="100" value="20" style="transform: translateY(3px);" id="rotationSpeedSlider">
+    <span id="rotationSpeedText"></span>
+  </div>
+  
+  <div class="sliderContainer">
+    <span style="padding-left: 11px;">Rotation Angle:</span>
+    <input type="range" min="0" max="90" value="45" style="transform: translateY(3px);" id="rotationAngleSlider">
+    <span id="rotationAngleText"></span>
+  </div>
+  
+  <div class="sliderContainer">
+    <span style="padding-left: 56px;">Parallax:</span>
+    <input type="range" min="0" max="100" value="100" style="transform: translateY(3px);" id="parallaxSlider">
+    <span id="parallaxText"></span>
+  </div>
+  
+  <div class="sliderContainer">
+    <span>Number of Sides:</span>
+    <input type="range" min="3" max="25" value="4" style="transform: translateY(3px);" id="numberOfSidesSlider">
+    <span id="numberOfSidesText"></span>
+  </div>
+  
+
+  <script src="lib/p5.min.js"></script>
+  <script src="lib/main.js"></script>
+  <script> //Sliders
+    //Rotation Speed
+    var rotationSpeedSlider = document.getElementById("rotationSpeedSlider");
+    document.getElementById("rotationSpeedText").innerHTML = rotationSpeedSlider.value + "%";
+    rotationSpeed = rotationSpeedSlider.value / 1000;
+    rotationSpeedSlider.oninput = function(){
+      document.getElementById("rotationSpeedText").innerHTML = this.value + "%";
+      rotationSpeed = this.value / 1000;
+    }
+    
+    //Rotation Angle
+    var rotationAngleSlider = document.getElementById("rotationAngleSlider");
+    document.getElementById("rotationAngleText").innerHTML = rotationAngleSlider.value + "°";
+    rotationAngle = rotationAngleSlider.value / 50;
+    rotationAngleSlider.oninput = function(){
+      document.getElementById("rotationAngleText").innerHTML = this.value + "°";
+      rotationAngle = this.value / 50;
+    }
+    
+    //Parallax
+    var parallaxSlider = document.getElementById("parallaxSlider");
+    document.getElementById("parallaxText").innerHTML = parallaxSlider.value;
+    parallax = parallaxSlider.value / 100;
+    parallaxSlider.oninput = function(){
+      document.getElementById("parallaxText").innerHTML = this.value;
+      parallax = this.value / 100;
+    }
+    
+    //Number of Sides
+    var numberOfSidesSlider = document.getElementById("numberOfSidesSlider");
+    document.getElementById("numberOfSidesText").innerHTML = numberOfSidesSlider.value + " side";
+    if(numberOfSidesSlider.value > 1 || numberOfSidesSlider.value < 1){document.getElementById("numberOfSidesText").innerHTML = document.getElementById("numberOfSidesText").innerHTML + "s"}
+    numberOfSides = numberOfSidesSlider.value;
+    numberOfSidesSlider.oninput = function(){
+      document.getElementById("numberOfSidesText").innerHTML = this.value + " side";
+      if(this.value > 1 || this.value < 1){document.getElementById("numberOfSidesText").innerHTML = document.getElementById("numberOfSidesText").innerHTML + "s"}
+    numberOfSides = this.value;
+    }
+  </script>
+  </body>
+</html>

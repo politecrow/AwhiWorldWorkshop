@@ -1,0 +1,21 @@
+body{
+  overflow: hidden;
+}
+
+canvas{
+  display: block;
+  position: relative;
+  margin: auto;
+}
+
+.colourPicker{
+  display: inline-block;
+  width: 80px;
+  height: 300px;
+  border: 1px dotted grey;
+}
+.color{
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
