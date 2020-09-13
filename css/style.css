@@ -9,6 +9,70 @@ canvas{
   box-shadow: 0px 0px 5px grey;
 }
 
-.sliderContainer{
-  
+footer{
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  width: fit-content;
+  transform: translateX(-50%);
+  font-size: 14px;
+}
+
+.title{
+  position: relative;
+  width: fit-content;
+  margin: auto;
+  margin-top: 30px;
+  font-size: 30px;
+}
+.title::after{
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 80%;
+  height: 1px;
+  transform: translateX(-50%);
+  margin-top: 5px;
+  border-bottom: 1px solid black;
+}
+
+.sliders{
+  position: relative;
+  width: 330px;
+  margin: auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.hint{
+  position: relative;
+  width: 100px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 90px;
+  background-color: lightgrey;
+  border-radius: 0.5em;
+  font-style: italic;
+  text-align: center;
+  user-select: none;
+}
+.hint:hover::before{
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  top: calc(100% - 4px);
+  left: 50%;
+  z-index: -1;
+  transform: translateX(-50%) rotate(45deg);
+  background-color: lightgrey;
+}
+.hint:hover::after{
+  content: "Rotation Speed: ←/→, View Angle: ↑/↓, Number of Sides: +/-";
+  position: absolute;
+  width: 160px;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
 }

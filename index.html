@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AwhiWorld p5 demo project</title>
+    <title>Polygons in p5</title>
     <meta charset="UTF-8">
+    <meta name="author" content="Zak Manley">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-  <!--<div class="colourPicker">
-    <div class="colour red"></div>
-    <div class="colour orange"></div>
-    <div class="colour yellow"></div>
-    <div class="colour red"></div>
-    <div class="colour red"></div>
-  </div>-->
+  <div class="title">Polygons in p5</div>
   
-  <div class="sliderContainer">
-    <span style="padding-left: 10px;">Rotation Speed:</span>
-    <input type="range" min="0" max="50" value="10" style="transform: translateY(3px);" id="rotationSpeedSlider">
-    <span id="rotationSpeedText"></span>
+  <div class="sliders">
+    <div class="sliderContainer">
+      <span style="padding-left: 10px;">Rotation Speed:</span>
+      <input type="range" min="0" max="50" value="10" style="transform: translateY(3px);" id="rotationSpeedSlider">
+      <span id="rotationSpeedText"></span>
+    </div>
+    
+    <div class="sliderContainer">
+      <span style="padding-left: 32px;">View Angle:</span>
+      <input type="range" min="0" max="225" value="75" style="transform: translateY(3px);" id="rotationAngleSlider">
+      <span id="rotationAngleText"></span>
+    </div>
+    
+    <!--<div class="sliderContainer">
+      <span style="padding-left: 56px;">Parallax:</span>
+      <input type="range" min="0" max="100" value="100" style="transform: translateY(3px);" id="parallaxSlider">
+      <span id="parallaxText"></span>
+    </div>-->
+    
+    <div class="sliderContainer">
+      <span>Number of Sides:</span>
+      <input type="range" min="3" max="25" value="4" style="transform: translateY(3px);" id="numberOfSidesSlider">
+      <span id="numberOfSidesText"></span>
+    </div>
+    
+    <!--<div class="sliderContainer">
+      <span style="padding-left: 25px;">Render Style:</span>
+      <input type="range" min="0" max="1" value="0" style="transform: translateY(3px);" id="renderStyleSlider">
+      <span id="renderStyleText"></span>
+    </div>-->
   </div>
   
-  <div class="sliderContainer">
-    <span style="padding-left: 32px;">View Angle:</span>
-    <input type="range" min="0" max="225" value="50" style="transform: translateY(3px);" id="rotationAngleSlider">
-    <span id="rotationAngleText"></span>
-  </div>
+  <main></main>
   
-  <!--<div class="sliderContainer">
-    <span style="padding-left: 56px;">Parallax:</span>
-    <input type="range" min="0" max="100" value="100" style="transform: translateY(3px);" id="parallaxSlider">
-    <span id="parallaxText"></span>
-  </div>-->
-  
-  <div class="sliderContainer">
-    <span>Number of Sides:</span>
-    <input type="range" min="3" max="25" value="4" style="transform: translateY(3px);" id="numberOfSidesSlider">
-    <span id="numberOfSidesText"></span>
-  </div>
-  
-  <div class="sliderContainer">
-    <span style="padding-left: 25px;">Render Style:</span>
-    <input type="range" min="0" max="1" value="0" style="transform: translateY(3px);" id="renderStyleSlider">
-    <span id="renderStyleText"></span>
-  </div>
-  
+  <div class="hint">keybindings</div>
 
   <script src="lib/p5.min.js"></script>
   <script src="lib/main.js"></script>
@@ -88,6 +88,7 @@
       numberOfSides = this.value;
     }
     
+    /*
     //Render Style
     var renderStyles = ["Wireframe", "Shaded"];
     var renderStyleSlider = document.getElementById("renderStyleSlider");
@@ -97,6 +98,7 @@
       document.getElementById("renderStyleText").innerHTML = renderStyles[this.value];
       renderStyle = this.value;
     }
+    */
   </script>
   <script> //Keyboard controls
     window.addEventListener("keydown", function(event){
@@ -142,7 +144,7 @@
         if(numberOfSidesSlider.value > 1 || numberOfSidesSlider.value < 1){document.getElementById("numberOfSidesText").innerHTML = document.getElementById("numberOfSidesText").innerHTML + "s"}
         numberOfSides = numberOfSidesSlider.value;
       }
-      
+      /*
       if(event.key == "r" || event.key == "R"){
         if(renderStyleSlider.value == 0){
           renderStyleSlider.value++;
@@ -152,7 +154,10 @@
         document.getElementById("renderStyleText").innerHTML = renderStyles[renderStyleSlider.value];
         renderStyle = renderStyleSlider.value;
       }
+      */
     });
   </script>
   </body>
+  
+  <footer>Thanks to AwhiWorld for such a great workshop.</footer>
 </html>
