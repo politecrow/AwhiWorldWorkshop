@@ -18,13 +18,13 @@
   
   <div class="sliderContainer">
     <span style="padding-left: 10px;">Rotation Speed:</span>
-    <input type="range" min="0" max="40" value="0" style="transform: translateY(3px);" id="rotationSpeedSlider">
+    <input type="range" min="0" max="50" value="10" style="transform: translateY(3px);" id="rotationSpeedSlider">
     <span id="rotationSpeedText"></span>
   </div>
   
   <div class="sliderContainer">
     <span style="padding-left: 32px;">View Angle:</span>
-    <input type="range" min="0" max="100" value="0" style="transform: translateY(3px);" id="rotationAngleSlider">
+    <input type="range" min="0" max="225" value="50" style="transform: translateY(3px);" id="rotationAngleSlider">
     <span id="rotationAngleText"></span>
   </div>
   
@@ -61,11 +61,11 @@
     
     //Rotation Angle
     var rotationAngleSlider = document.getElementById("rotationAngleSlider");
-    document.getElementById("rotationAngleText").innerHTML = (rotationAngleSlider.value * 0.9).toFixed(0) + "°";
-    rotationAngle = rotationAngleSlider.value / 100;
+    document.getElementById("rotationAngleText").innerHTML = (rotationAngleSlider.value * 0.2).toFixed(0) + "°";
+    viewAngle = rotationAngleSlider.value / 900;
     rotationAngleSlider.oninput = function(){
-      document.getElementById("rotationAngleText").innerHTML = (this.value * 0.9).toFixed(0) + "°";
-      rotationAngle = this.value / 100;
+      document.getElementById("rotationAngleText").innerHTML = (this.value * 0.2).toFixed(0) + "°";
+      viewAngle = this.value / 900;
     }
     /*
     //Parallax
@@ -97,6 +97,62 @@
       document.getElementById("renderStyleText").innerHTML = renderStyles[this.value];
       renderStyle = this.value;
     }
+  </script>
+  <script> //Keyboard controls
+    window.addEventListener("keydown", function(event){
+      if(event.key == "ArrowUp"){
+        rotationAngleSlider.value--;
+        rotationAngleSlider.value--;
+        rotationAngleSlider.value--;
+        rotationAngleSlider.value--;
+        rotationAngleSlider.value--;
+        document.getElementById("rotationAngleText").innerHTML = (rotationAngleSlider.value * 0.2).toFixed(0) + "°";
+        viewAngle = rotationAngleSlider.value / 900;
+      }
+      if(event.key == "ArrowDown"){
+        rotationAngleSlider.value++;
+        rotationAngleSlider.value++;
+        rotationAngleSlider.value++;
+        rotationAngleSlider.value++;
+        rotationAngleSlider.value++;
+        document.getElementById("rotationAngleText").innerHTML = (rotationAngleSlider.value * 0.2).toFixed(0) + "°";
+        viewAngle = rotationAngleSlider.value / 900;
+      }
+      
+      if(event.key == "ArrowLeft"){
+        rotationSpeedSlider.value--;
+        document.getElementById("rotationSpeedText").innerHTML = rotationSpeedSlider.value * 2 + "%";
+        rotationSpeed = rotationSpeedSlider.value / 1000;
+      }
+      if(event.key == "ArrowRight"){
+        rotationSpeedSlider.value++;
+        document.getElementById("rotationSpeedText").innerHTML = rotationSpeedSlider.value * 2 + "%";
+        rotationSpeed = rotationSpeedSlider.value / 1000;
+      }
+      
+      if(event.key == "-" || event.key == "_"){
+        numberOfSidesSlider.value--;
+        document.getElementById("numberOfSidesText").innerHTML = numberOfSidesSlider.value + " side";
+        if(numberOfSidesSlider.value > 1 || numberOfSidesSlider.value < 1){document.getElementById("numberOfSidesText").innerHTML = document.getElementById("numberOfSidesText").innerHTML + "s"}
+        numberOfSides = numberOfSidesSlider.value;
+      }
+      if(event.key == "=" || event.key == "+"){
+        numberOfSidesSlider.value++;
+        document.getElementById("numberOfSidesText").innerHTML = numberOfSidesSlider.value + " side";
+        if(numberOfSidesSlider.value > 1 || numberOfSidesSlider.value < 1){document.getElementById("numberOfSidesText").innerHTML = document.getElementById("numberOfSidesText").innerHTML + "s"}
+        numberOfSides = numberOfSidesSlider.value;
+      }
+      
+      if(event.key == "r" || event.key == "R"){
+        if(renderStyleSlider.value == 0){
+          renderStyleSlider.value++;
+        }else{
+          renderStyleSlider.value--;
+        }
+        document.getElementById("renderStyleText").innerHTML = renderStyles[renderStyleSlider.value];
+        renderStyle = renderStyleSlider.value;
+      }
+    });
   </script>
   </body>
 </html>
