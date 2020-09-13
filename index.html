@@ -18,7 +18,7 @@
   
   <div class="sliderContainer">
     <span style="padding-left: 10px;">Rotation Speed:</span>
-    <input type="range" min="0" max="40" value="20" style="transform: translateY(3px);" id="rotationSpeedSlider">
+    <input type="range" min="0" max="40" value="0" style="transform: translateY(3px);" id="rotationSpeedSlider">
     <span id="rotationSpeedText"></span>
   </div>
   
@@ -28,11 +28,11 @@
     <span id="rotationAngleText"></span>
   </div>
   
-  <div class="sliderContainer">
+  <!--<div class="sliderContainer">
     <span style="padding-left: 56px;">Parallax:</span>
     <input type="range" min="0" max="100" value="100" style="transform: translateY(3px);" id="parallaxSlider">
     <span id="parallaxText"></span>
-  </div>
+  </div>-->
   
   <div class="sliderContainer">
     <span>Number of Sides:</span>
@@ -67,7 +67,7 @@
       document.getElementById("rotationAngleText").innerHTML = (this.value * 0.9).toFixed(0) + "°";
       rotationAngle = this.value / 100;
     }
-    
+    /*
     //Parallax
     var parallaxSlider = document.getElementById("parallaxSlider");
     document.getElementById("parallaxText").innerHTML = parallaxSlider.value;
@@ -76,7 +76,7 @@
       document.getElementById("parallaxText").innerHTML = this.value;
       parallax = this.value / 100;
     }
-    
+    */
     //Number of Sides
     var numberOfSidesSlider = document.getElementById("numberOfSidesSlider");
     document.getElementById("numberOfSidesText").innerHTML = numberOfSidesSlider.value + " side";
