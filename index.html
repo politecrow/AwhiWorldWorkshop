@@ -24,7 +24,7 @@
   
   <div class="sliderContainer">
     <span style="padding-left: 32px;">View Angle:</span>
-    <input type="range" min="0" max="100" value="50" style="transform: translateY(3px);" id="rotationAngleSlider">
+    <input type="range" min="0" max="100" value="0" style="transform: translateY(3px);" id="rotationAngleSlider">
     <span id="rotationAngleText"></span>
   </div>
   
@@ -38,6 +38,12 @@
     <span>Number of Sides:</span>
     <input type="range" min="3" max="25" value="4" style="transform: translateY(3px);" id="numberOfSidesSlider">
     <span id="numberOfSidesText"></span>
+  </div>
+  
+  <div class="sliderContainer">
+    <span style="padding-left: 25px;">Render Style:</span>
+    <input type="range" min="0" max="1" value="0" style="transform: translateY(3px);" id="renderStyleSlider">
+    <span id="renderStyleText"></span>
   </div>
   
 
@@ -79,7 +85,17 @@
     numberOfSidesSlider.oninput = function(){
       document.getElementById("numberOfSidesText").innerHTML = this.value + " side";
       if(this.value > 1 || this.value < 1){document.getElementById("numberOfSidesText").innerHTML = document.getElementById("numberOfSidesText").innerHTML + "s"}
-    numberOfSides = this.value;
+      numberOfSides = this.value;
+    }
+    
+    //Render Style
+    var renderStyles = ["Wireframe", "Shaded"];
+    var renderStyleSlider = document.getElementById("renderStyleSlider");
+    document.getElementById("renderStyleText").innerHTML = renderStyles[renderStyleSlider.value];
+    renderStyle = renderStyleSlider.value;
+    renderStyleSlider.oninput = function(){
+      document.getElementById("renderStyleText").innerHTML = renderStyles[this.value];
+      renderStyle = this.value;
     }
   </script>
   </body>
